@@ -103,6 +103,15 @@ DATABASES = {
        "PASSWORD": os.getenv("PREDICTION_DB_PASS"),
        "OPTIONS": {"sslmode": os.getenv("PREDICTION_DB_SSLMODE", "disable")},
    },
+   "service_db":{
+        "ENGINE": "django.db.backends.postgresql",
+        "HOST": "apnibus-service-db.postgres.database.azure.com",
+        "PORT": 5432,
+        "NAME": "postgres",
+        "USER": "azureuser",
+        "PASSWORD": "Apnibus@service77",
+        "OPTIONS": {"sslmode": "require"},
+    },
 }
 
 DATABASE_ROUTERS = ["alias_search_service.db_router.ExternalDBRouter"]

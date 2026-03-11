@@ -3,6 +3,10 @@ class ExternalDBRouter:
     def db_for_read(self, model, **hints):
         if model._meta.app_label == "prediction_proxy":
             return "prediction_db"
+        
+        if model._meta.app_label == "service_proxy":
+            return "service_db"
+        
         return None
 
     def db_for_write(self, model, **hints):
